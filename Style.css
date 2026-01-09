@@ -6,7 +6,7 @@
 /* STRATÉGIE HYBRIDE : Vertical via @page, Horizontal via padding body */
 @page {
     size: A4;
-    margin: 40mm 0 25mm 0; /* Haut 4cm, Bas 2.5cm, Latéral 0 */
+    margin: 20mm 0 20mm 0; /* Haut 2cm, Bas 2cm, Latéral 0 */
 }
 
 @page:first {
