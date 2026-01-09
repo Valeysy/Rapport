@@ -6,7 +6,7 @@
 /* STRATÉGIE HYBRIDE : Vertical via @page, Horizontal via padding body */
 @page {
     size: A4;
-    margin: 20mm 0 20mm 0; /* Haut 2cm, Bas 2cm, Latéral 0 */
+    margin: 28mm 0 20mm 0; /* Haut 2cm, Bas 2cm, Latéral 0 */
 }
 
 @page:first {
@@ -35,11 +35,11 @@ footer,
 
 body {
     font-family: 'Helvetica Neue', Arial, sans-serif;
-    font-size: 12px;
-    line-height: 1.2;
+    font-size: 15px;
+    line-height: 1.4;
     color: #000;
     margin: 0;
-    padding: 0 25mm; /* Droite/Gauche 2.5cm géré ici pour éviter les décalages */
+    padding: 0 20mm; /* Réduit à 20mm */
     width: 100%;
     min-height: 297mm;
     overflow-x: hidden;
@@ -48,7 +48,11 @@ body {
 }
 
 p {
-    margin: 0; /* Espace avant et après paragraphe : 0 */
+    margin: 0 0 12px 0; /* Espace après paragraphe : 6px */
+}
+
+li {
+    margin-bottom: 6px;
 }
 
 /* --- PAGE DE GARDE STRICTE --- */
@@ -56,7 +60,7 @@ p {
     position: relative;
     width: 210mm;
     height: 297mm;
-    margin: 0 -25mm; /* On compense juste le padding gauche/droite du body */
+    margin: 0 -20mm; /* On compense le padding gauche/droite du body (20mm) */
     padding: 20mm;
     page-break-after: always;
     overflow: hidden;
@@ -72,13 +76,13 @@ p {
 /* Topline : nom étudiant à gauche, année/formation à droite */
 .cover-topline {
     position: absolute;
-    top: 15mm;
+    top: 20mm; /* Descendu de 15mm à 20mm */
     left: 20mm;
     right: 20mm;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    font-size: 12px; /* Vladimir Nechaev... : 12, normal */
+    font-size: 15px; /* Vladimir Nechaev... : 15 */
     font-weight: normal;
     line-height: 1.4;
 }
@@ -99,7 +103,7 @@ p {
 /* Bloc université + infos meta au même niveau */
 .cover-meta {
     position: absolute;
-    top: 25mm; 
+    top: 32mm; /* Descendu de 25mm à 32mm pour laisser de l'espace */
     left: 20mm;
     right: 20mm;
     display: flex;
@@ -109,13 +113,13 @@ p {
 
 .cover-right {
     text-align: right;
-    font-size: 12px;
+    font-size: 15px;
     font-weight: normal;
     line-height: 1.5;
 }
 
 .cover-left {
-    font-size: 12px;
+    font-size: 15px;
     font-weight: normal;
     line-height: 1.5;
 }
@@ -145,7 +149,7 @@ p {
 /* Titres centrés sous le logo */
 .cover-titles {
     position: absolute;
-    top: 45%; /* Remonté (était à 62%) pour réduire l'espace avec l'image */
+    top: 43%; /* Remonté (était à 62%) pour réduire l'espace avec l'image */
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
@@ -153,8 +157,8 @@ p {
 }
 
 .cover-course {
-    font-size: 24px;
-    font-weight: 900;
+    font-size: 32px;
+    font-weight: bold;
     text-transform: uppercase;
     color: #000;
     margin-bottom: 4mm;
@@ -163,7 +167,7 @@ p {
 }
 
 .cover-title {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: bold;
     color: #000;
     margin-bottom: 4mm;
@@ -184,7 +188,7 @@ p {
     bottom: 18mm;
     right: 20mm;
     text-align: right;
-    font-size: 12px; /* Tuteur pédagogique : 12, normal */
+    font-size: 15px; /* Tuteur pédagogique : 15 */
     font-weight: normal;
     line-height: 1.4;
 }
@@ -206,19 +210,19 @@ p {
 h1 {
     color: #000000;
     font-weight: bold;
-    font-size: 16px; /* Titre 1 : 16, gras */
+    font-size: 18px; /* Titre 1 : 18, gras */
     border: none !important; 
 }
 
 h2 {
     color: #000000;
-    font-size: 14px; /* Titre : 14, gras */
+    font-size: 15px; /* Titre : 15, gras */
     font-weight: bold;
 }
 
 h3 {
     color: #000000;
-    font-size: 12px; /* Text : 12, normal (mais en gras pour différencier si besoin, ou normal selon demande stricte "Text" ?) */
+    font-size: 15px; /* Text : 15, normal (mais en gras pour différencier si besoin) */
     margin-top: 10px;
     font-weight: bold; /* On garde le gras pour un H3, même taille que texte */
 }
@@ -269,7 +273,7 @@ body img:not(.cover-page img):not(.logo) {
     display: flex;
     align-items: flex-end; /* Aligner sur le bas pour les pointillés */
     margin-bottom: 8px;
-    font-size: 14px;
+    font-size: 15px;
 }
 
 .toc-item a {
@@ -295,7 +299,7 @@ table {
     width: 100%;
     border-collapse: collapse;
     margin: 20px 0;
-    font-size: 12px;
+    font-size: 15px;
     table-layout: fixed; /* CRUCIAL : Empêche le tableau d'élargir la page */
     word-wrap: break-word;
 }
@@ -312,6 +316,7 @@ th, td {
 th {
     background-color: #f9f9f9;
     font-weight: bold;
+    border-bottom: 1px solid #ccc; /* Bordure bas explicite fine */
 }
 .toc-item .label {
     background-color: #fff;
