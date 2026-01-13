@@ -3,10 +3,12 @@
     box-sizing: border-box;
 }
 
-/* STRATÉGIE HYBRIDE : Vertical via @page, Horizontal via padding body */
+/* STRATÉGIE HYBRIDE V2 : Vertical via @page (répétition), Horizontal via padding body (contrôle largeur) */
 @page {
     size: A4;
-    margin: 28mm 0 20mm 0; /* Haut 2cm, Bas 2cm, Latéral 0 */
+    /* Marges verticales définies ici pour se répéter sur CHAQUE page */
+    /* Marges latérales à 0 pour laisser le body gérer la largeur via padding */
+    margin: 28mm 0 20mm 0; 
 }
 
 @page:first {
@@ -39,12 +41,13 @@ body {
     line-height: 1.4;
     color: #000;
     margin: 0;
-    padding: 0 20mm; /* Réduit à 20mm */
+    /* Horizontal via padding pour éviter coupure à droite */
+    /* Vertical à 0 car géré par @page */
+    padding: 0 20mm; 
     width: 100%;
-    min-height: 297mm;
-    overflow-x: hidden;
-    overflow-wrap: break-word;
-    word-wrap: break-word;
+    box-sizing: border-box;
+    /* Important : pas d'overflow hidden ni de height fixe pour la pagination */
+    height: auto;
 }
 
 p {
@@ -60,11 +63,13 @@ li {
     position: relative;
     width: 210mm;
     height: 297mm;
-    margin: 0 -20mm; /* On compense le padding gauche/droite du body (20mm) */
+    /* Compensation du padding horizontal du body */
+    margin: 0 -20mm; 
     padding: 20mm;
     page-break-after: always;
     overflow: hidden;
     background-color: #fff;
+    box-sizing: border-box;
 }
 
 /* Neutralisation des styles globaux sur la couverture */
